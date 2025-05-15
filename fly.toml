@@ -1,0 +1,29 @@
+app = "recipea-app"
+primary_region = "sin"  # 新加坡区域，您可以根据需要更改
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "8080"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 1024
+
+[mounts]
+  source = "recipea_data"
+  destination = "/data" 
+
+[metrics]
+  port = 9091
+  path = "/metrics" 
