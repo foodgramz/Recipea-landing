@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import WaitlistPopup from "@/components/waitlist-popup"
+import Script from "next/script"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -18,15 +19,37 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "Recipea",
     url: "https://www.recipea.net",
+    images: [
+      {
+        url: "https://www.recipea.net/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Recipea - AI Recipe & Meal Planner"
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
     title: "Recipea - AI Recipe & Meal Planner | Gen Z Cooking Made Easy",
     description: "Transform your cooking with Recipea's AI-powered recipe app. Perfect for Gen Z and young adults - create delicious meals, reduce food waste, and share your recipes.",
+    images: ["https://www.recipea.net/twitter-image.jpg"]
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.recipea.net',
+  },
+  verification: {
+    google: 'your-google-verification-code',
   },
   generator: 'v0.dev'
 }
@@ -39,6 +62,23 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=G-6SFTM0W54E`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-6SFTM0W54E');
+          `}
+        </Script>
+
+        {/* Google Search Console 验证 */}
+        <meta name="google-site-verification" content="your-verification-code" />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

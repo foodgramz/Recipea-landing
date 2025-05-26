@@ -4,6 +4,21 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import FeatureCard from "@/components/feature-card"
 import { Utensils, Calendar, Search, Heart, Clock, Sparkles, ShoppingCart, BarChart } from "lucide-react"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Recipea Features | AI-Powered Cooking & Meal Planning Tools",
+  description: "Discover Recipea's powerful features: AI recipe suggestions, personalized meal planning, step-by-step cooking guides, and smart shopping lists. Transform your cooking experience with our innovative tools.",
+  keywords: "AI recipe features, meal planning tools, cooking guides, smart shopping lists, recipe suggestions, personalized meal plans, cooking technology, food waste reduction, sustainable cooking, recipe management, AI recipe generator, healthy meal planner, quick recipes, vegan meals, low carb recipes, weight loss meals, diabetes-friendly recipes, keto recipes, gluten-free meals, vegetarian recipes, meal prep ideas, healthy cooking, nutrition planning, diet meal plans, fitness meal prep, clean eating recipes, healthy food ideas, easy recipes, simple cooking, budget meals, student cooking, time-saving recipes, meal planning app, recipe finder, cooking assistant, smart cooking, AI cooking, recipe suggestions, personalized recipes, custom meal plans, dietary restrictions, special diets, health-conscious cooking, wellness recipes, balanced meals, nutritious cooking, healthy lifestyle, cooking tips, kitchen hacks, food preparation, meal organization, weekly meal plans, daily recipes, cooking inspiration, recipe discovery, food innovation, cooking technology, smart kitchen, digital cooking, modern cooking, cooking solutions, recipe management, meal tracking, food planning, cooking guidance, recipe assistance, cooking support, meal solutions",
+  openGraph: {
+    title: "Recipea Features | AI-Powered Cooking & Meal Planning Tools",
+    description: "Discover Recipea's powerful features: AI recipe suggestions, personalized meal planning, step-by-step cooking guides, and smart shopping lists.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Recipea",
+    url: "https://www.recipea.net/features",
+  }
+}
 
 export default function FeaturesPage() {
   const features = [

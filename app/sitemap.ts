@@ -5,15 +5,46 @@ export default function sitemap(): MetadataRoute.Sitemap {
   
   // 基础路由
   const routes = [
-    '',
-    '/waitlist',
-    '/pricing',
-    '/membership',
-  ].map((route) => ({
+    {
+      route: '',
+      priority: 1.0,
+      changeFrequency: 'daily' as const,
+    },
+    {
+      route: '/waitlist',
+      priority: 0.9,
+      changeFrequency: 'daily' as const,
+    },
+    {
+      route: '/pricing',
+      priority: 0.8,
+      changeFrequency: 'weekly' as const,
+    },
+    {
+      route: '/membership',
+      priority: 0.8,
+      changeFrequency: 'weekly' as const,
+    },
+    {
+      route: '/contact',
+      priority: 0.7,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      route: '/privacy-policy',
+      priority: 0.5,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      route: '/features',
+      priority: 0.8,
+      changeFrequency: 'weekly' as const,
+    }
+  ].map(({ route, priority, changeFrequency }) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: 'daily' as const,
-    priority: route === '' ? 1 : 0.8,
+    changeFrequency,
+    priority,
   }))
 
   return routes

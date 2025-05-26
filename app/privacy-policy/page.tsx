@@ -1,7 +1,22 @@
+import type { Metadata } from "next"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+
+export const metadata: Metadata = {
+  title: "Recipea Privacy Policy | Data Protection & Security",
+  description: "Learn how Recipea protects your privacy and handles your data. Our comprehensive privacy policy covers data collection, usage, security measures, and your rights.",
+  keywords: "recipe app privacy, data protection, privacy policy, data security, personal information protection, user data privacy, cooking app security, recipe data protection",
+  openGraph: {
+    title: "Recipea Privacy Policy | Data Protection & Security",
+    description: "Learn how Recipea protects your privacy and handles your data. Our comprehensive privacy policy covers data collection, usage, and security measures.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Recipea",
+    url: "https://www.recipea.net/privacy-policy",
+  }
+}
 
 export default function PrivacyPolicyPage() {
   return (

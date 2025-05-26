@@ -1,8 +1,23 @@
+import type { Metadata } from "next"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Check, X } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
+export const metadata: Metadata = {
+  title: "Recipea Pricing | Affordable Meal Planning & Recipe Management",
+  description: "Choose the perfect Recipea plan for your cooking needs. From free basic features to premium AI-powered meal planning and recipe management. Start with a 7-day free trial.",
+  keywords: "recipe app pricing, meal planning cost, cooking app subscription, recipe management pricing, AI cooking assistant cost, food planning subscription, recipe app plans, cooking technology pricing, AI recipe generator, healthy meal planner, quick recipes, vegan meals, low carb recipes, weight loss meals, diabetes-friendly recipes, keto recipes, gluten-free meals, vegetarian recipes, meal prep ideas, healthy cooking, nutrition planning, diet meal plans, fitness meal prep, clean eating recipes, healthy food ideas, easy recipes, simple cooking, budget meals, student cooking, time-saving recipes, meal planning app, recipe finder, cooking assistant, smart cooking, AI cooking, recipe suggestions, personalized recipes, custom meal plans, dietary restrictions, special diets, health-conscious cooking, wellness recipes, balanced meals, nutritious cooking, healthy lifestyle, cooking tips, kitchen hacks, food preparation, meal organization, weekly meal plans, daily recipes, cooking inspiration, recipe discovery, food innovation, cooking technology, smart kitchen, digital cooking, modern cooking, cooking solutions, recipe management, meal tracking, food planning, cooking guidance, recipe assistance, cooking support, meal solutions",
+  openGraph: {
+    title: "Recipea Pricing | Affordable Meal Planning & Recipe Management",
+    description: "Choose the perfect Recipea plan for your cooking needs. From free basic features to premium AI-powered meal planning and recipe management.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Recipea",
+    url: "https://www.recipea.net/pricing",
+  }
+}
 
 export default function PricingPage() {
   return (
@@ -27,7 +42,7 @@ export default function PricingPage() {
                     Monthly
                   </TabsTrigger>
                   <TabsTrigger value="annual" className="text-lg py-3">
-                    Annual (Save 50%)
+                    Annual (Save 67%)
                   </TabsTrigger>
                 </TabsList>
 
@@ -256,10 +271,10 @@ export default function PricingPage() {
                         <h3 className="text-2xl font-semibold mb-2">Premium</h3>
                         <p className="text-gray-300 mb-4">Personalized cooking experience</p>
                         <div className="mb-6">
-                          <span className="text-5xl font-bold">$4.95</span>
+                          <span className="text-5xl font-bold">$3.33</span>
                           <span className="text-gray-400">/month</span>
-                          <p className="text-sm text-orange-500 mt-2">Billed annually ($59.40/year)</p>
-                          <p className="text-sm text-green-500 mt-1">Save 50% vs. monthly</p>
+                          <p className="text-sm text-orange-500 mt-2">Billed annually ($39.99/year)</p>
+                          <p className="text-sm text-green-500 mt-1">Save 67% vs. monthly</p>
                         </div>
                         <Button className="w-full py-6 bg-orange-500 hover:bg-orange-600 text-black text-lg">
                           Start Free Trial
@@ -414,7 +429,7 @@ export default function PricingPage() {
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Cooking?</h2>
               <p className="text-xl text-gray-300 mb-8">
-                Start your free 3-day trial today and experience the full power of Recipea
+                Start your free 7-day trial today and experience the full power of Recipea
               </p>
               <Button className="bg-orange-500 hover:bg-orange-600 text-black text-lg py-6 px-8 rounded-full">
                 Get Started Now

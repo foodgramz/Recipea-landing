@@ -4,6 +4,21 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Check, ArrowRight, Zap, BarChart3, Calendar, ShoppingCart } from "lucide-react"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Recipea Membership | Premium Cooking & Nutrition Features",
+  description: "Unlock Recipea's premium features: personalized nutrition plans, advanced meal planning, exclusive recipes, and priority support. Join our community of passionate cooks.",
+  keywords: "recipe app membership, premium cooking features, nutrition planning, exclusive recipes, meal planning premium, cooking community membership, recipe app subscription, cooking technology premium, AI recipe generator, healthy meal planner, quick recipes, vegan meals, low carb recipes, weight loss meals, diabetes-friendly recipes, keto recipes, gluten-free meals, vegetarian recipes, meal prep ideas, healthy cooking, nutrition planning, diet meal plans, fitness meal prep, clean eating recipes, healthy food ideas, easy recipes, simple cooking, budget meals, student cooking, time-saving recipes, meal planning app, recipe finder, cooking assistant, smart cooking, AI cooking, recipe suggestions, personalized recipes, custom meal plans, dietary restrictions, special diets, health-conscious cooking, wellness recipes, balanced meals, nutritious cooking, healthy lifestyle, cooking tips, kitchen hacks, food preparation, meal organization, weekly meal plans, daily recipes, cooking inspiration, recipe discovery, food innovation, cooking technology, smart kitchen, digital cooking, modern cooking, cooking solutions, recipe management, meal tracking, food planning, cooking guidance, recipe assistance, cooking support, meal solutions",
+  openGraph: {
+    title: "Recipea Membership | Premium Cooking & Nutrition Features",
+    description: "Unlock Recipea's premium features: personalized nutrition plans, advanced meal planning, exclusive recipes, and priority support.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Recipea",
+    url: "https://www.recipea.net/membership",
+  }
+}
 
 export default function MembershipPage() {
   return (
