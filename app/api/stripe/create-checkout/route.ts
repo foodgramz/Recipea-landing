@@ -3,9 +3,36 @@ import { stripe } from "@/lib/stripe"
 import { PLANS } from "@/lib/stripe"
 import { db } from "@/lib/db"
 
+type PlanType = keyof typeof PLANS
+
+interface RequestBody {
+  userId: string
+  planType: string
+}
+
+interface Membership {
+  id: string
+  userId: string
+  type: string
+  status: string
+  startDate: Date
+  endDate: Date
+  stripeCustomerId?: string
+  stripeSubscriptionId?: string
+  createdAt: Date
+  updatedAt: Date
+}
+
+interface User {
+  id: string
+  email: string
+  username: string
+  membership?: Membership | null
+}
+
 export async function POST(req: Request) {
   try {
-    const { userId, planType } = await req.json()
+    const { userId, planType } = await req.json() as RequestBody
 
     if (!userId || !planType) {
       return NextResponse.json(
@@ -18,7 +45,7 @@ export async function POST(req: Request) {
     const user = await db.user.findUnique({
       where: { id: userId },
       include: { membership: true }
-    })
+    }) as User | null
 
     if (!user) {
       return NextResponse.json(
@@ -28,7 +55,8 @@ export async function POST(req: Request) {
     }
 
     // Get plan details
-    const plan = PLANS[planType.toUpperCase()]
+    const normalizedPlanType = planType.toUpperCase() as PlanType
+    const plan = PLANS[normalizedPlanType]
     if (!plan) {
       return NextResponse.json(
         { message: "Invalid plan type" },
