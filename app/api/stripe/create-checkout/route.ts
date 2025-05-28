@@ -10,24 +10,22 @@ interface RequestBody {
   planType: string
 }
 
-interface Membership {
-  id: string
-  userId: string
-  type: string
-  status: string
-  startDate: Date
-  endDate: Date
-  stripeCustomerId?: string
-  stripeSubscriptionId?: string
-  createdAt: Date
-  updatedAt: Date
-}
-
-interface User {
+interface UserWithMembership {
   id: string
   email: string
   username: string
-  membership?: Membership | null
+  membership: {
+    id: string
+    userId: string
+    type: string
+    status: string
+    startDate: Date
+    endDate: Date
+    stripeCustomerId?: string
+    stripeSubscriptionId?: string
+    createdAt: Date
+    updatedAt: Date
+  } | null
 }
 
 export async function POST(req: Request) {
@@ -45,7 +43,7 @@ export async function POST(req: Request) {
     const user = await db.user.findUnique({
       where: { id: userId },
       include: { membership: true }
-    }) as User | null
+    }) as unknown as UserWithMembership | null
 
     if (!user) {
       return NextResponse.json(
