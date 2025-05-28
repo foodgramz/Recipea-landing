@@ -37,6 +37,12 @@ export default function Navbar() {
             <Link href="/waitlist" className="text-orange-500 font-medium hover:text-orange-400 transition-colors">
               Join Waitlist
             </Link>
+            <Link href="/register">
+              <Button variant="outline">Sign Up</Button>
+            </Link>
+            <Link href="/login">
+              <Button>Sign In</Button>
+            </Link>
             {/* <Button className="bg-orange-500 hover:bg-orange-600 text-black">Download App</Button> */}
           </div>
 
@@ -83,6 +89,12 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               Join Waitlist
+            </Link>
+            <Link href="/register">
+              <Button variant="outline">Sign Up</Button>
+            </Link>
+            <Link href="/login">
+              <Button>Sign In</Button>
             </Link>
             {/* <Button
               className="w-full bg-orange-500 hover:bg-orange-600 text-black"

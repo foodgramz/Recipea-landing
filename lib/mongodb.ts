@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb'
 
 if (!process.env.MONGODB_URL) {
-  throw new Error('请在环境变量中设置 MONGODB_URL')
+  throw new Error('Invalid/Missing environment variable: "MONGODB_URL"')
 }
 
 const uri = process.env.MONGODB_URL
@@ -11,7 +11,8 @@ let client
 let clientPromise: Promise<MongoClient>
 
 if (process.env.NODE_ENV === 'development') {
-  // 在开发环境中使用全局变量以避免连接数过多
+  // In development mode, use a global variable so that the value
+  // is preserved across module reloads caused by HMR (Hot Module Replacement).
   let globalWithMongo = global as typeof globalThis & {
     _mongoClientPromise?: Promise<MongoClient>
   }
@@ -22,9 +23,11 @@ if (process.env.NODE_ENV === 'development') {
   }
   clientPromise = globalWithMongo._mongoClientPromise
 } else {
-  // 在生产环境中创建新的连接
+  // In production mode, it's best to not use a global variable.
   client = new MongoClient(uri, options)
   clientPromise = client.connect()
 }
 
+// Export a module-scoped MongoClient promise. By doing this in a
+// separate module, the client can be shared across functions.
 export default clientPromise 
