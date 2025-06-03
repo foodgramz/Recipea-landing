@@ -39,7 +39,7 @@ export default function CtaSection() {
               </div>
 
               <p className="mt-6 text-sm text-gray-400">
-                Available on iOS, coming soon!.
+                Available on iOS, ready to explore the world of cooking with AI.
               </p>
             </div>
 
