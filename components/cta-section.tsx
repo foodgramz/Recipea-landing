@@ -3,6 +3,11 @@ import { Apple, Play } from "lucide-react"
 import Image from "next/image"
 
 export default function CtaSection() {
+  const handleAppStoreClick = () => {
+    // 替换为您的 App Store 链接
+    window.open('https://apps.apple.com/app/recipeaai/id6745997012', '_blank')
+  }
+
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
@@ -17,7 +22,10 @@ export default function CtaSection() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button className="bg-orange-500 hover:bg-orange-600 text-black text-lg py-6 px-8 rounded-full flex items-center gap-2">
+                <Button 
+                  onClick={handleAppStoreClick}
+                  className="bg-orange-500 hover:bg-orange-600 text-black text-lg py-6 px-8 rounded-full flex items-center gap-2"
+                >
                   <Apple size={20} />
                   Download on App Store
                 </Button>
