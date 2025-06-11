@@ -43,6 +43,8 @@ export default function Home() {
       <main>
         <HeroSection />
 
+        <CtaSection />
+
         <FeatureSection
           title="AI-Powered Recipe Ideas"
           description="Simply input the ingredients you have on hand, and Recipea's AI will generate delicious recipe ideas tailored to your preferences and pantry."
@@ -80,6 +82,7 @@ export default function Home() {
         <TestimonialSection />
 
         <CtaSection />
+        
       </main>
 
       <Footer />
